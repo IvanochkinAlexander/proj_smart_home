@@ -3,6 +3,8 @@ from tools import load_config
 import subprocess
 import time
 from co2 import get_co2
+from humidity import get_humidity
+
 
 def get_ip_and_token(tool, config):
     return config[tool]['ip'], config[tool]['token']
@@ -24,6 +26,8 @@ for i in config.keys():
 print(floor_lamp, humidifier, recirculator, chandelier_1, chandelier_2)
 co2 = get_co2()
 print(co2)
+h, t = get_humidity()
+print("Temp={0:0.1f}*C  Humidity={1:0.1f}%".format(t, h))
 # run_command(humidifier, 'on')
 # time.sleep(7)
 # run_command(humidifier, 'off')
