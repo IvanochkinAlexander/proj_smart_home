@@ -2,7 +2,7 @@ import os
 from tools import load_config
 import subprocess
 import time
-
+from co2 import get_co2
 
 def get_ip_and_token(tool, config):
     return config[tool]['ip'], config[tool]['token']
@@ -22,9 +22,8 @@ for i in config.keys():
     globals()[i] = get_ip_and_token(i, config)
 
 print(floor_lamp, humidifier, recirculator, chandelier_1, chandelier_2)
-
-#run_command(humidifier, 'on')
-#time.sleep(7)
-#run_command(humidifier, 'off')
-
-
+co2 = get_co2()
+print(co2)
+# run_command(humidifier, 'on')
+# time.sleep(7)
+# run_command(humidifier, 'off')
