@@ -12,8 +12,9 @@ def run_command(params, command):
     cmd = f"""miplug --ip {params[0]} --token {params[1]} {command}"""
     print(cmd)
     subprocess.run(cmd.split(' '))
-
-PROJECT_PATH = '/users/test/Documents/proj_smart_home'
+ 
+PROJECT_PATH = os.path.abspath(os.getcwd())
+#PROJECT_PATH = '/users/test/Documents/proj_smart_home'
 CONFIG_PATH = 'configs'
 config = load_config(os.path.join(PROJECT_PATH, CONFIG_PATH, 'tokens.yaml'))
 
